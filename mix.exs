@@ -26,9 +26,9 @@ defmodule Cloudex.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.11.0"},
+      {:httpoison, "~> 1.3.0"},
       {:poison, "~> 3.1.0"},
-      {:timex, "~> 3.1.7"},
+      {:timex, "~> 3.3.0"},
       {:tzdata, "~> 0.5.11"},
       {:credo, "> 0.0.0", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},
