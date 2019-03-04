@@ -1,2 +1,8 @@
 use Mix.Config
-import_config "#{Mix.env}.exs"
+
+# config :cloudex,
+#   api_key: "",
+#   secret: "",
+#   cloud_name: ""
+
+import_config "#{Mix.env()}.exs"
