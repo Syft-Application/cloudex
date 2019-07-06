@@ -17,8 +17,8 @@ defmodule Cloudex.Settings do
   Called by the supervisor, this will use settings defined in config.exs or ENV vars
   """
   def start(:normal, []) do
-    [:api_key, :secret, :cloud_name]
-    |> get_app_config
+    [:api_key, :secret, :cloud_name, :url]
+    |> get_app_config()
     |> Cloudex.EnvOptions.merge_missing_settings()
     |> start
   end
@@ -102,6 +102,8 @@ defmodule Cloudex.Settings do
     )
   end
 
+  defp get_app_config([:url|_keys], map), do: Application.get_env(:cloudex, :url) |> parse_url()
+
   defp get_app_config([key|keys], map) do
     new_map = Map.put(map, key, Application.get_env(:cloudex, key))
     get_app_config(keys, new_map)
@@ -114,6 +116,10 @@ defmodule Cloudex.Settings do
         [_url, api_key, secret, cloud_name] -> %{api_key: api_key, secret: secret, cloud_name: cloud_name}
         _ -> validate(url)
     end
+  end
+
+  defp validate(%{url: url} = settings) when is_binary(url) do
+    {:ok, settings}
   end
 
   defp validate(%{api_key: "placeholder", secret: "placeholder", cloud_name: "placeholder"}) do
