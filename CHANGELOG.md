@@ -1,3 +1,11 @@
+## 1.3.0 (2019-06-07)
+
+  - Thanks again @abitdodgy for interexchanging the json library from Poison to Jason and making it configurable out of the box :)
+
+## 1.2.4 (2019-06-05)
+
+  - Thank you @abitdodgy for adding the ability to delete images by prefix
+
 ## 1.2.3 (2019-02-25)
 
   - Thank you @erikreedstrom for removing resource_type from signing

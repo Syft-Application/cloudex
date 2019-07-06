@@ -9,7 +9,7 @@ There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ```elixir
 defp deps do
-  [  {:cloudex, "~> 1.2.1"},  ]
+  [  {:cloudex, "~> 1.3.0"},  ]
 end
 ```
 
@@ -49,6 +49,13 @@ You can put url into ENV VAR like below and this will be substritutes with real 
   config :cloudex,
     url: System.get_env("CLOUDIARY_URL"),
 ```
+
+[Jason](http://github.com/michalmuskala/jason) is the default json library in Cloudex. You can configure Cloudex to use another library. For example:
+
+```elixir
+config :cloudex, :json_library, YourLibraryOfChoice
+```
+
 
 ## Uploading
 You can upload image files or urls pointing to an image as follows :
