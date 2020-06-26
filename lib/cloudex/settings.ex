@@ -112,7 +112,7 @@ defmodule Cloudex.Settings do
   defp parse_url(nil), do: %{}
 
   defp parse_url(url) do
-    case Regex.run(~r/cloudinary:\/\/([^:]+):([^@]+)@(\w+)/, url) do
+    case Regex.run(~r/cloudinary:\/\/([^:]+):([^@]+)@([\w-]+)/, url) do
         [_url, api_key, secret, cloud_name] -> %{api_key: api_key, secret: secret, cloud_name: cloud_name}
         _ -> validate(url)
     end
